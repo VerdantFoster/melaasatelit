@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mela Mahani | 122290072</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MathJax untuk merender persamaan matematika -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulasi Lintasan Satelit Ganimede</h1>
+        <p>Metode numerik integrasi Runge-Kutta 4 (RK4) digunakan untuk memprediksi lintasan satelit Ganimede mengelilingi Jupiter. Simulasi ini menggambarkan bagaimana metode RK4 dapat digunakan untuk menyelesaikan persamaan gerak dalam sistem gravitasi dengan lebih akurat.</p>
+
+        <h2>Pengenalan Metode RK4</h2>
+        <p>Metode Runge-Kutta 4 adalah metode numerik yang lebih akurat dibandingkan metode Euler dalam menyelesaikan persamaan diferensial. Metode ini menggunakan empat estimasi slope pada setiap langkah waktu untuk menentukan nilai berikutnya, menghasilkan simulasi yang lebih stabil dan realistis.</p>
+
+        <h2>Prinsip Dasar Simulasi</h2>
+        <p>Simulasi ini menggunakan hukum gravitasi Newton untuk menentukan percepatan satelit akibat gaya gravitasi Jupiter. Dengan menggunakan metode RK4, posisi dan kecepatan satelit diperbarui secara iteratif pada setiap interval waktu, menghasilkan orbit yang lebih akurat dan stabil.</p>
+
+        <!-- Persamaan Fisika -->
+        <h2>Persamaan yang Digunakan</h2>
+        <p>Simulasi ini didasarkan pada persamaan gerak Newton dalam sistem gravitasi dua benda. Berikut adalah persamaan yang digunakan:</p>
+        <p>
+            Hukum Gravitasi Newton:
+            \[
+            \mathbf{F} = G \frac{m_1 m_2}{r^2} \hat{\mathbf{r}}
+            \]
+            \[
+            \mathbf{a} = \frac{\mathbf{F}}{m} = G \frac{M}{r^2} \hat{\mathbf{r}}
+            \]
+            Di mana:
+            <ul>
+                <li>\( G \) adalah konstanta gravitasi universal (\(6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}\)).</li>
+                <li>\( M \) adalah massa Jupiter (\(1.898 \times 10^{27} \, \text{kg}\)).</li>
+                <li>\( r \) adalah jarak antara pusat Jupiter dan satelit Ganimede.</li>
+                <li>\( \hat{\mathbf{r}} \) adalah vektor satuan yang menunjukkan arah dari satelit ke Jupiter.</li>
+            </ul>
+        </p>
+        <p>
+            Metode Runge-Kutta 4 (RK4):
+            \[
+            \mathbf{y}_{n+1} = \mathbf{y}_n + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+            \]
+            Di mana:
+            <ul>
+                <li>\( k_1 = f(t_n, \mathbf{y}_n) \cdot \Delta t \)</li>
+                <li>\( k_2 = f\left(t_n + \frac{\Delta t}{2}, \mathbf{y}_n + \frac{k_1}{2}\right) \cdot \Delta t \)</li>
+                <li>\( k_3 = f\left(t_n + \frac{\Delta t}{2}, \mathbf{y}_n + \frac{k_2}{2}\right) \cdot \Delta t \)</li>
+                <li>\( k_4 = f(t_n + \Delta t, \mathbf{y}_n + k_3) \cdot \Delta t \)</li>
+            </ul>
+        </p>
+
+        <canvas id="simulationCanvas" width="800" height="800"></canvas>
+
+        <h2>Simulasi dan Visualisasi</h2>
+        <p>Di bawah ini adalah simulasi visual lintasan satelit Ganimede menggunakan metode RK4. Trail atau lintasan ditampilkan untuk memperlihatkan jalur orbit yang dihasilkan dari perhitungan numerik.</p>
+
+        <!-- Kontrol Fitur -->
+        <div class="controls">
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+            <label for="speedRange">Kecepatan Simulasi:</label>
+            <input type="range" id="speedRange" min="1" max="10" value="5">
+            <span id="speedValue">5</span>
+            <button id="resetBtn">Reset Simulasi</button>
+        </div>
+
+        <!-- Tampilan Koordinat Satelit -->
+        <div class="coordinates">
+            <h3>Koordinat Satelit Ganimede</h3>
+            <p>X: <span id="coordX">0</span> m</p>
+            <p>Y: <span id="coordY">0</span> m</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; Mela Mahani 122290072 | 2024
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

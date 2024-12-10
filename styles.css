@@ -1,0 +1,128 @@
+/* Reset dan dasar styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+h1, h2, h3 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Canvas Styling */
+#simulationCanvas {
+    display: block;
+    margin: 20px auto;
+    background-color: #1e1e1e;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+}
+
+/* Kontrol Fitur */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.controls button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #555;
+}
+
+.controls label {
+    margin-right: 10px;
+}
+
+.controls input[type="range"] {
+    width: 150px;
+}
+
+#speedValue {
+    margin-left: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Tampilan Koordinat Satelit */
+.coordinates {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.coordinates p {
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #simulationCanvas {
+        width: 100%;
+        height: auto;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
